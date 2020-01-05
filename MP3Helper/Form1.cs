@@ -43,7 +43,7 @@ namespace MP3Helper
             audioFile.Tag.Title = titleTextBox.Text;
             audioFile.Tag.Comment = commentRichTextBox.Text;
 
-            System.IO.File.Move(path, filenameTextBox.Text);
+            System.IO.File.Move(path, Path.GetDirectoryName(path) + "\\" + filenameTextBox.Text);
         }
 
         private void ChooseDirectory()
@@ -68,6 +68,7 @@ namespace MP3Helper
             listBox1.DataSource = null;
             listBox1.SelectedIndex = -1;
             listBox1.DataSource = directories;
+            listBox1.Update();
         }
 
         private void selectFolderButton_Click(object sender, EventArgs e)
