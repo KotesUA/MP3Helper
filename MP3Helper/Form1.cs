@@ -64,11 +64,11 @@ namespace MP3Helper
             WriteToMP3(directories[listBox1.SelectedIndex]);
             MessageBox.Show("Changes saved!");
 
+            directories = new List<string>();
             directories = Directory.GetFiles(folderBrowserDialog1.SelectedPath, "*.mp3*", SearchOption.AllDirectories).ToList();
+
             listBox1.DataSource = null;
-            listBox1.SelectedIndex = -1;
             listBox1.DataSource = directories;
-            listBox1.Update();
         }
 
         private void selectFolderButton_Click(object sender, EventArgs e)
