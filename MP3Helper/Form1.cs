@@ -15,7 +15,6 @@ namespace MP3Helper
             InitializeComponent();
 
             directories = new List<string>();
-            ChooseDirectory();
         }
 
         private static List<string> directories;
@@ -67,6 +66,7 @@ namespace MP3Helper
 
             directories = Directory.GetFiles(folderBrowserDialog1.SelectedPath, "*.mp3*", SearchOption.AllDirectories).ToList();
             listBox1.DataSource = null;
+            listBox1.SelectedIndex = -1;
             listBox1.DataSource = directories;
         }
 
